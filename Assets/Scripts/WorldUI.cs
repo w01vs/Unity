@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class WorldUI : MonoBehaviour
 {
-    public Transform cam;
+    [SerializeField] private Transform cam;
 
     public void Start()
     {

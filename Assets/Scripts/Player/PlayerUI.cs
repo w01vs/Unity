@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using Unity.VisualScripting;
 
 public class PlayerUI : MonoBehaviour
 {
@@ -14,9 +13,9 @@ public class PlayerUI : MonoBehaviour
     private PlayerHealthManagerScriptableObject healthManager;
 
     private float health;
-    public Image frontHealthBar;
-    public Image backHealthBar;
-    public float CHIPSPEED = 2f;
+    [SerializeField] private Image frontHealthBar;
+    [SerializeField] private Image backHealthBar;
+    public float chipSpeed = 2f;
     private float lerpTimer;
 
     public void Update()
@@ -40,7 +39,7 @@ public class PlayerUI : MonoBehaviour
         promptText.text = promptMessage;
     }
 
-    void UpdateHealthUI()
+    private void UpdateHealthUI()
     {
         float fillF = frontHealthBar.fillAmount;
         float fillB = backHealthBar.fillAmount;
@@ -50,7 +49,7 @@ public class PlayerUI : MonoBehaviour
             frontHealthBar.fillAmount = hFraction;
             backHealthBar.color = Color.red;
             lerpTimer += Time.deltaTime;
-            float percentComplete = lerpTimer / CHIPSPEED;
+            float percentComplete = lerpTimer / chipSpeed;
             percentComplete *= percentComplete;
             backHealthBar.fillAmount = Mathf.Lerp(fillB, hFraction, percentComplete);
         }
@@ -59,7 +58,7 @@ public class PlayerUI : MonoBehaviour
             backHealthBar.fillAmount = hFraction;
             backHealthBar.color = Color.yellow;
             lerpTimer += Time.deltaTime;
-            float percentComplete = lerpTimer / CHIPSPEED;
+            float percentComplete = lerpTimer / chipSpeed;
             percentComplete *= percentComplete;
             frontHealthBar.fillAmount = Mathf.Lerp(fillF, backHealthBar.fillAmount, percentComplete);
         }

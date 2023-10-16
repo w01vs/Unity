@@ -7,17 +7,15 @@ public class PlayerMotor : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool isGrounded;
-    public float gravity = -9.8f;
-    public const float defaultSpeed = 5f;
-    public float currentSpeed;
-    public const float sprintSpeed = 8f;
-    public const float crouchSpeed = 3f;
-    public float jumpHeight = 1f;
+    [SerializeField] private float gravity = -9.8f;
+    [SerializeField] private float defaultSpeed = 5f;
+    [SerializeField] private float currentSpeed;
+    [SerializeField] private float sprintSpeed = 8f;
+    [SerializeField] private float crouchSpeed = 3f;
+    [SerializeField] private float jumpHeight = 1f;
     private bool lerpCrouch;
     private bool crouching;
-
     private float crouchTimer;
-
     private bool sprinting;
 
     // Start is called before the first frame update

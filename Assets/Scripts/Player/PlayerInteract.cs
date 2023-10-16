@@ -7,12 +7,11 @@ using UnityEngine.EventSystems;
 public class PlayerInteract : MonoBehaviour
 {
     private Camera cam;
-    [SerializeField]
-    private float maxDistance = 3;
-    [SerializeField]
-    private LayerMask mask;
+    [SerializeField] private float maxDistance = 3;
+    [SerializeField] private LayerMask mask;
     private InputManager inputManager;
     private PlayerUI playerUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +33,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 Interactable interactable = hitInfo.collider.GetComponent<Interactable>();
                 playerUI.UpdateText(interactable.promptMessage);
-                if (inputManager.onFoot.Interact.triggered)
+                if (inputManager.OnFoot.Interact.triggered)
                 {
                     interactable.BaseInteract();
                 }

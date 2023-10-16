@@ -118,12 +118,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""Use"",
                     ""type"": ""Button"",
                     ""id"": ""8bddbf6c-f23f-4d78-884b-fff823e8482a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": false
                 }
             ],
@@ -289,7 +289,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Use"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -826,7 +826,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_OnFoot_CrouchFinish = m_OnFoot.FindAction("CrouchFinish", throwIfNotFound: true);
         m_OnFoot_Inspect = m_OnFoot.FindAction("Inspect", throwIfNotFound: true);
         m_OnFoot_Reload = m_OnFoot.FindAction("Reload", throwIfNotFound: true);
-        m_OnFoot_Shoot = m_OnFoot.FindAction("Shoot", throwIfNotFound: true);
+        m_OnFoot_Use = m_OnFoot.FindAction("Use", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -910,7 +910,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_OnFoot_CrouchFinish;
     private readonly InputAction m_OnFoot_Inspect;
     private readonly InputAction m_OnFoot_Reload;
-    private readonly InputAction m_OnFoot_Shoot;
+    private readonly InputAction m_OnFoot_Use;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
@@ -925,7 +925,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @CrouchFinish => m_Wrapper.m_OnFoot_CrouchFinish;
         public InputAction @Inspect => m_Wrapper.m_OnFoot_Inspect;
         public InputAction @Reload => m_Wrapper.m_OnFoot_Reload;
-        public InputAction @Shoot => m_Wrapper.m_OnFoot_Shoot;
+        public InputAction @Use => m_Wrapper.m_OnFoot_Use;
         public InputActionMap Get() { return m_Wrapper.m_OnFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -965,9 +965,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Reload.started += instance.OnReload;
             @Reload.performed += instance.OnReload;
             @Reload.canceled += instance.OnReload;
-            @Shoot.started += instance.OnShoot;
-            @Shoot.performed += instance.OnShoot;
-            @Shoot.canceled += instance.OnShoot;
+            @Use.started += instance.OnUse;
+            @Use.performed += instance.OnUse;
+            @Use.canceled += instance.OnUse;
         }
 
         private void UnregisterCallbacks(IOnFootActions instance)
@@ -1002,9 +1002,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Reload.started -= instance.OnReload;
             @Reload.performed -= instance.OnReload;
             @Reload.canceled -= instance.OnReload;
-            @Shoot.started -= instance.OnShoot;
-            @Shoot.performed -= instance.OnShoot;
-            @Shoot.canceled -= instance.OnShoot;
+            @Use.started -= instance.OnUse;
+            @Use.performed -= instance.OnUse;
+            @Use.canceled -= instance.OnUse;
         }
 
         public void RemoveCallbacks(IOnFootActions instance)
@@ -1152,7 +1152,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnCrouchFinish(InputAction.CallbackContext context);
         void OnInspect(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
-        void OnShoot(InputAction.CallbackContext context);
+        void OnUse(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

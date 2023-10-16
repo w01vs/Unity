@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage;
+    [SerializeField] private int damage;
     private float destroyTimer;
     private float flightTimer;
-    public LayerMask layerMask;
-    Vector3 v;
+    [SerializeField] private LayerMask layerMask;
 
-    public void Start()
-    {
-        v = transform.position;
-    }
     // Update is called once per frame
     void Update()
     {

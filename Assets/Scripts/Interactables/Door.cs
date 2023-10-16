@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Door : Interactable
 {
-    [SerializeField]
-    private GameObject door;
+    [SerializeField] private GameObject door;
     private bool doorOpen;
 
     void Start()

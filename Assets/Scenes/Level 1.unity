@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 442823177}
   - component: {fileID: 442823176}
   - component: {fileID: 442823175}
-  - component: {fileID: 442823174}
+  - component: {fileID: 442823180}
   m_Layer: 6
   m_Name: Heal
   m_TagString: Untagged
@@ -581,33 +581,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &442823174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 442823173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33960099333f5e44eb3ae1f2ff5056c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 4244e4d0b7cc0ce439e8f7bd1b73dac9, type: 2}
-        m_TargetAssemblyTypeName: HealthManagerScriptableObject, Assembly-CSharp
-        m_MethodName: IncreaseHealth
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
-          m_FloatArgument: 20
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &442823175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,6 +681,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &442823180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442823173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33960099333f5e44eb3ae1f2ff5056c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4244e4d0b7cc0ce439e8f7bd1b73dac9, type: 2}
+        m_TargetAssemblyTypeName: PlayerHealthManagerScriptableObject, Assembly-CSharp
+        m_MethodName: IncreaseHealth
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &448390449
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +756,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 100
-  deathTimer: 0
   healthUI: {fileID: 1183980550}
   timeUntilDeath: 2
 --- !u!1 &547268542
@@ -1203,8 +1202,6 @@ MonoBehaviour:
   barrel: {fileID: 715944897}
   velocity: 2
   maxDistance: 50
-  gun: {fileID: 949255546}
-  user: {fileID: 1722232109}
   bullet: {fileID: 3693723815024115596, guid: 436bce1c110c4f143bb4d903ab1c21bd, type: 3}
 --- !u!95 &949255548
 Animator:
@@ -1954,7 +1951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3d75626cbe3b347bfd325f3db4e0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useEvents: 1
+  useEvents: 0
   promptMessage: 
   door: {fileID: 1989123786}
 --- !u!114 &1385213978
@@ -2743,7 +2740,7 @@ GameObject:
   - component: {fileID: 1947880916}
   - component: {fileID: 1947880915}
   - component: {fileID: 1947880914}
-  - component: {fileID: 1947880913}
+  - component: {fileID: 1947880919}
   m_Layer: 6
   m_Name: Damage
   m_TagString: Untagged
@@ -2751,33 +2748,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1947880913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947880912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33960099333f5e44eb3ae1f2ff5056c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 4244e4d0b7cc0ce439e8f7bd1b73dac9, type: 2}
-        m_TargetAssemblyTypeName: HealthManagerScriptableObject, Assembly-CSharp
-        m_MethodName: DecreaseHealth
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 20
-          m_FloatArgument: 20
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1947880914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2878,6 +2848,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1947880919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947880912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33960099333f5e44eb3ae1f2ff5056c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4244e4d0b7cc0ce439e8f7bd1b73dac9, type: 2}
+        m_TargetAssemblyTypeName: PlayerHealthManagerScriptableObject, Assembly-CSharp
+        m_MethodName: DecreaseHealth
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1989123786
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,7 +3164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: -9.8
+  defaultSpeed: 5
   currentSpeed: 0
+  sprintSpeed: 8
+  crouchSpeed: 3
   jumpHeight: 0.7
 --- !u!114 &6345295575109763575
 MonoBehaviour:
@@ -3217,4 +3217,4 @@ MonoBehaviour:
   healthManager: {fileID: 11400000, guid: 4244e4d0b7cc0ce439e8f7bd1b73dac9, type: 2}
   frontHealthBar: {fileID: 1739837944}
   backHealthBar: {fileID: 571264590}
-  CHIPSPEED: 2
+  chipSpeed: 2

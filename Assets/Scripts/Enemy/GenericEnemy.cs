@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class GenericEnemy : MonoBehaviour
 {
-    public int health;
-    public int maxHealth = 100;
-    public float deathTimer;
+    [SerializeField] private int health;
+    [SerializeField] private int maxHealth = 100;
+    private float deathTimer;
     public TextMeshProUGUI healthUI;
 
-    public float timeUntilDeath = 2f;
+    [SerializeField] private float timeUntilDeath = 2f;
     // Start is called before the first frame update
     void Start()
     {

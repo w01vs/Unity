@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public Transform barrel;
-    public int velocity = 1;
-    public float maxDistance = 50;
-    public GameObject gun;
-    public Transform user;
-    public GameObject bullet;
+    [SerializeField] private Transform barrel;
+    [SerializeField] private int velocity = 1;
+    [SerializeField] private float maxDistance = 50;
+    [SerializeField] private GameObject bullet;
     private Animator animator;
 
     private Ray ray;
@@ -27,8 +25,8 @@ public class Gun : MonoBehaviour
             Shoot();
         }
 
-        ray = new Ray(transform.parent.parent.position, transform.parent.parent.forward);
-        Debug.DrawRay(ray.origin, ray.direction * 30, Color.red);
+        //ray = new Ray(transform.parent.parent.position, transform.parent.parent.forward);
+        //Debug.DrawRay(ray.origin, ray.direction * 30, Color.red);
 
     }
 
